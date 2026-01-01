@@ -62,6 +62,47 @@ public class Algorithm {
         }
     }
     
+
+    public static void mergeSort(int[] data) {
+        mergeSort(data, 0, data.length-1);
+    }
+    
+    private static void mergeSort(int[] data, int start, int end) {
+        if (start < end) {
+            int mid = start + (end - start) / 2;
+            mergeSort(data, start, mid);
+            mergeSort(data, mid + 1, end);
+            mergeTogether(data, start, mid, end);
+        }
+    }
+    
+    private static void mergeTogether(int[] data, int start, int mid, int end) {
+        int[] temp = new int[end - start + 1];
+        int i = start; // sybolize the left array or left part
+        int j = mid+1; // sybolize the right array or right part for add
+        int index = 0;
+
+        while (i <= mid && j <= end) {
+            if (data[i] < data[j]) {
+                temp[index++] = data[i++];
+            } else {
+                temp[index++] = data[j++];
+            }
+        }
+
+        while (i <= mid) {
+            temp[index++] = data[i++];
+        }
+        
+        while (j <= end) {
+            temp[index++] = data[j++];
+        }
+
+        index = start;
+        for (i = 0; i < temp.length; i++) {
+            data[index++] = temp[i];
+        }
+    }
     // It is the helper method to swap elements
     private static void swap(int[] data, int start, int end) {
         int temp = data[start];
