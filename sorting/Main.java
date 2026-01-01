@@ -29,6 +29,21 @@ public class Main {
         System.out.println("Before sorting "+Arrays.toString(data));
         Algorithm.mergeSort(data);
         System.out.println("After sorting  " + Arrays.toString(data));
+
+        data = new int[] { 5, 4, 3, 2, 1 };
+        System.out.println("Before sorting "+Arrays.toString(data));
+        Algorithm.quickSortLeft(data);
+        System.out.println("After sorting  " + Arrays.toString(data));
+
+        data = new int[] { 5, 4, 3, 2, 1 };
+        System.out.println("Before sorting "+Arrays.toString(data));
+        Algorithm.quickSortRight(data);
+        System.out.println("After sorting  " + Arrays.toString(data));
+
+        data = new int[] { 5, 4, 3, 2, 1 };
+        System.out.println("Before sorting "+Arrays.toString(data));
+        Algorithm.quickSort(data);
+        System.out.println("After sorting  " + Arrays.toString(data));
     }
     
 }

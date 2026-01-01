@@ -79,7 +79,7 @@ public class Algorithm {
     private static void mergeTogether(int[] data, int start, int mid, int end) {
         int[] temp = new int[end - start + 1];
         int i = start; // sybolize the left array or left part
-        int j = mid+1; // sybolize the right array or right part for add
+        int j = mid + 1; // sybolize the right array or right part for add
         int index = 0;
 
         while (i <= mid && j <= end) {
@@ -93,7 +93,7 @@ public class Algorithm {
         while (i <= mid) {
             temp[index++] = data[i++];
         }
-        
+
         while (j <= end) {
             temp[index++] = data[j++];
         }
@@ -102,6 +102,125 @@ public class Algorithm {
         for (i = 0; i < temp.length; i++) {
             data[index++] = temp[i];
         }
+    }
+    
+    public static void quickSortLeft(int[] array) {
+        quickSortLeft(array, 0, array.length - 1);
+    }
+    
+    private static void quickSortLeft(int[] array, int left, int right) {
+        if (left < right) {
+            int pivot = pivotLeft(array, left, right);
+            quickSortLeft(array, left, pivot - 1);
+            quickSortLeft(array, pivot+1, right);
+        }
+    }
+    
+    private static int pivotLeft(int[] array, int low, int high) {
+        //likely one element
+        if (low == high) {
+            return low;
+        } else {
+            int pivot = low;
+            int left = low + 1;
+            int right = high;
+
+            while (left <= right) {
+                while (left <= right && array[left] < array[pivot]) {
+                    left++;
+                }
+
+                while (left <= right && array[right] > array[pivot]) {
+                    right--;
+                }
+
+                if (left <= right) {
+                    swap(array, left, right);
+                    left++;
+                    right--;
+                }
+
+                swap(array, pivot, right);
+            }
+            return right;
+        }
+    }
+
+    public static void quickSortRight(int[] array) {
+        quickSortLeft(array, 0, array.length - 1);
+    }
+    
+    private static void quickSortRight(int[] array, int left, int right) {
+        if (left < right) {
+            int pivot = pivotRight(array, left, right);
+            quickSortRight(array, left, pivot - 1);
+            quickSortRight(array, pivot+1, right);
+        }
+    }
+
+    private static int pivotRight(int[] array, int low, int high) {
+        //likely one element
+        if (low == high) {
+            return low;
+        } else {
+            int pivot = high;
+            int left = low;
+            int right = high - 1;
+
+            while (left <= right) {
+                while (left <= right && array[left] < array[pivot]) {
+                    left++;
+                }
+
+                while (left <= right && array[right] > array[pivot]) {
+                    right--;
+                }
+
+                if (left <= right) {
+                    swap(array, left, right);
+                    left++;
+                    right--;
+                }
+                swap(array, pivot, left);
+            }
+            return left;
+        }
+    }
+    
+    public static void quickSort(int[] array) {
+        quickSortLeft(array, 0, array.length - 1);
+    }
+    
+    private static void quickSort(int[] array, int left, int right) {
+        if (left < right) {
+            int pivot = pivotMiddle(array, left, right);
+            quickSort(array, left, pivot - 1);
+            quickSort(array, pivot+1, right);
+        }
+    }
+    // we assume our mid element is in the correct position
+    private static int pivotMiddle(int[] array, int low, int high) {
+        int mid = (low + high) / 2;
+        int left = low;
+        int right = high;
+
+        while (left <= right) {
+            while (array[left] < array[mid]) {
+                left++;
+            }
+
+            while (array[right] > array[mid]) {
+                right--;
+            }
+
+            if (left <= right) {
+                swap(array, left, right);
+                left++;
+                right--;
+            }
+        }
+
+        return mid;
     }
     // It is the helper method to swap elements
     private static void swap(int[] data, int start, int end) {

@@ -5,7 +5,7 @@
 - [x] [Insertion Sort](#insertion-sort)
 - [x] [Cyclic Sort](#cyclic-sort)
 - [x] [Merge Sort](#merge-sort)
-- [ ] Quick Sort
+- [x] [Quick Sort](#quick-sort)
 - [ ] Heap Sort
 
 ---
@@ -176,3 +176,195 @@ Single-element arrays are already sorted:
 - Performance is **predictable**
 - Widely used for **linked lists** and **large datasets**
 - Not an in-place algorithm
+
+--
+
+## Quick Sort
+
+Quick Sort is a **divide and conquer** sorting algorithm.
+It works by selecting a **pivot element** and rearranging the array so that:
+
+- Elements **smaller than the pivot** go to the **left**
+- Elements **greater than the pivot** go to the **right**
+- The pivot ends up in its **correct sorted position**
+
+The same steps are applied recursively to the left and right subarrays.
+
+---
+
+## General Quick Sort Algorithm
+
+```
+QUICK_SORT(arr, low, high):
+    if low < high:
+        pivotIndex = PARTITION(arr, low, high)
+        QUICK_SORT(arr, low, pivotIndex - 1)
+        QUICK_SORT(arr, pivotIndex + 1, high)
+```
+
+---
+
+## Pivot Selection Strategies
+
+---
+
+## 1. Pivot = First Element (Left Pivot)
+
+### Explanation
+
+- The first element is chosen as the pivot.
+- All smaller elements are moved to the left of the pivot.
+
+### Algorithm
+
+```
+pivot = arr[low]
+left  = low + 1
+right = high
+
+while left <= right:
+    while left <= right and arr[left] < pivot:
+        left++
+
+    while left <= right and arr[right] > pivot:
+        right--
+
+    if left <= right:
+        swap(arr[left], arr[right])
+        left++
+        right--
+
+swap(arr[low], arr[right])
+return right
+
+```
+
+---
+
+## 2. Pivot = Last Element (Right Pivot)
+
+### Explanation
+
+- The last element is chosen as the pivot.
+- Uses the **Lomuto partition scheme**.
+
+### Algorithm
+
+```
+PARTITION_RIGHT_HOARE(arr, low, high):
+
+    pivot = arr[high]
+
+    left  = low
+    right = high - 1
+
+    while left <= right:
+
+        while left <= right and arr[left] < pivot:
+            left++
+
+        while left <= right and arr[right] > pivot:
+            right--
+
+        if left <= right:
+            swap(arr[left], arr[right])
+            left++
+            right--
+
+    swap(arr[left], arr[high])
+    return left
+
+```
+
+---
+
+## 3. Pivot = Middle Element
+
+### Explanation
+
+- The middle element is selected as the pivot.
+- Produces more balanced partitions.
+- Uses **Hoare partition scheme**.
+
+### Algorithm
+
+```
+PARTITION_MIDDLE(arr, low, high):
+    mid = (low + high) // 2
+    pivot = arr[mid]
+
+    left = low
+    right = high
+
+    while left <= right:
+        while arr[left] < pivot:
+            left = left + 1
+
+        while arr[right] > pivot:
+            right = right - 1
+
+        if left <= right:
+            swap(arr[left], arr[right])
+            left = left + 1
+            right = right - 1
+
+    return left
+```
+
+### Recursive Calls
+
+```
+QUICK_SORT(arr, low, index - 1)
+QUICK_SORT(arr, index, high)
+```
+
+---
+
+## 4. Pivot = Random Element
+
+### Explanation
+
+- A random element is selected as the pivot.
+- Helps avoid worst-case scenarios.
+- Commonly used in real systems.
+
+### Algorithm
+
+```
+PARTITION_RANDOM(arr, low, high):
+    randomIndex = RANDOM(low, high)
+    swap(arr[randomIndex], arr[high])
+
+    return PARTITION_RIGHT(arr, low, high)
+```
+
+---
+
+## Time Complexity
+
+| Case         | Complexity |
+| ------------ | ---------- |
+| Best Case    | O(n log n) |
+| Average Case | O(n log n) |
+| Worst Case   | O(n²)      |
+
+---
+
+## Space Complexity
+
+| Case    | Complexity |
+| ------- | ---------- |
+| Average | O(log n)   |
+| Worst   | O(n)       |
+
+- Quick Sort is an **in-place** algorithm
+- Extra space is used only for recursion stack
+
+---
+
+## Key Points
+
+- Divide and Conquer algorithm
+- Very fast in practice
+- Not a stable sort
+- Random pivot is safest for interviews but use the mid one then only time complexicity can be good other wise if array is sorted we can get worst time complexicity
