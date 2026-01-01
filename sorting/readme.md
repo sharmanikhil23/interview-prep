@@ -4,7 +4,7 @@
 - [x] [Selection Sort](#selection-sort)
 - [x] [Insertion Sort](#insertion-sort)
 - [x] [Cyclic Sort](#cyclic-sort)
-- [ ] Merge Sort
+- [x] [Merge Sort](#merge-sort)
 - [ ] Quick Sort
 - [ ] Heap Sort
 
@@ -117,3 +117,62 @@ By the end, all elements will be in their **correct positions**.
 **Best Case:** `O(n)`
 
 **Space Complexity:** `O(1)`
+
+---
+
+## Merge Sort
+
+Merge Sort is a **divide and conquer** sorting algorithm.  
+It works by **recursively dividing the array into smaller subarrays** until each subarray contains a single element, and then **merging those subarrays back together in sorted order**.
+
+---
+
+### Working of Merge Sort
+
+#### Divide
+
+[38, 27, 43, 10]
+→ [38, 27] and [43, 10]
+→ [38] [27] [43] [10]
+
+#### Conquer
+
+Single-element arrays are already sorted:
+
+- [38]
+- [27]
+- [43]
+- [10]
+
+#### Merge
+
+[38] + [27] → [27, 38]
+[43] + [10] → [10, 43]
+[27, 38] + [10, 43] → [10, 27, 38, 43]
+
+✅ Final sorted array:
+[10, 27, 38, 43]
+
+---
+
+### Time Complexity
+
+- **Best Case:** `O(n log n)`
+- **Average Case:** `O(n log n)`
+- **Worst Case:** `O(n log n)`
+
+---
+
+### Space Complexity
+
+- **Space:** `O(n)`  
+  (Extra space is required for merging subarrays)
+
+---
+
+### Key Points
+
+- Merge Sort is **stable**
+- Performance is **predictable**
+- Widely used for **linked lists** and **large datasets**
+- Not an in-place algorithm
