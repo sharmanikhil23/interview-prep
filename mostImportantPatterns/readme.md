@@ -225,3 +225,103 @@ public int[] twoSum(int[] num, int target) {
         return new int[]{-1,-1};
     }
 ```
+
+3. [Reverse Words in a String](https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1)
+
+#### First Approach
+
+```
+Using two pointer by using extra list
+
+class Solution {
+    public String reverseWords(String s) {
+       List<String> temp = new ArrayList<>();
+       int start = 0;
+       int prev = 0;
+       boolean firstChar = false;
+
+       while(start<s.length()){
+           if(s.charAt(start) == '.'){
+               if(firstChar){
+                  temp.add(s.substring(prev,start));
+               }
+               firstChar = false;
+               start++;
+           }else{
+               if(firstChar){
+                   start++;
+               }else{
+                   firstChar = true;
+                   prev = start;
+                   start++;
+               }
+           }
+       }
+        // if last character is not . then we have to add
+       if(firstChar){
+           temp.add(s.substring(prev,start));
+       }
+
+       //System.out.println(temp);
+       String result = "";
+       for(int i= temp.size()-1;i>=0;i--){
+           if(i==0){
+               result += temp.get(i);
+
+           }else{
+               result += temp.get(i) +".";
+           }
+       }
+
+       return result;
+
+    }
+}
+
+```
+
+#### Second Approach ⚠️ **Important:** Must try it
+
+```
+Again 2 pointer but first we will reverse the string then
+
+public static String reverseWords(String s) {
+        // Convert the string to a char array
+        // for in-place operations
+        char[] chars = s.toCharArray();
+        int n = chars.length;
+
+        // Reverse the entire string
+        reverse(chars, 0, n - 1);
+
+        int i = 0;
+        for (int l = 0; l < n; ++l) {
+            if (chars[l] != '.') {
+
+                // Add a dot between words if needed
+                if (i != 0) chars[i++] = '.';
+
+                // Find the end of the word
+                int r = l;
+                while (r < n && chars[r] != '.') chars[i++] = chars[r++];
+
+                // Reverse the current word
+                reverse(chars, i - (r - l), i-1);
+
+                // Move to next word
+                l = r;
+            }
+        }
+
+        return new String(chars, 0, i);
+    }
+
+    // Utility to reverse part of the char array
+    private static void reverse(char[] arr, int left, int right) {
+        while (left < right) {
+            char temp = arr[left];
+            arr[left++] = arr[right];
+            arr[right--] = temp;
+        }
+    }
+```
