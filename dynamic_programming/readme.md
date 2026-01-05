@@ -78,7 +78,8 @@ Reduces space complexity from `O(n)` to `O(1)`.
 
 ## Practice Problems
 
-- [Fibonacci Series](#fibonacci-series)
+1. [Fibonacci Series](#fibonacci-series)
+2. [Minimum Cost to Climb Stair](#minimum-cost-to-climb-stair)
 
 ---
 
@@ -165,3 +166,98 @@ public static int spaceOptimization(int n) {
 ```
 
 It clearly shows how Dynamic Programming improves performance by avoiding repeated computations.
+
+## Minimum Cost to Climb Stair
+
+- Recursion
+
+```
+public static int recursion(int[] cost) {
+        return Math.min(recursion(cost, 0), recursion(cost, 1));
+    }
+
+    private static int recursion(int[] cost, int index) {
+        // already left the top
+        if (index > cost.length - 1) {
+            return 0;
+        } else if (index == cost.length - 1) {
+            return cost[index];
+        } else {
+            return cost[index] + Math.min(recursion(cost, index + 1), recursion(cost, index + 2));
+        }
+    }
+
+```
+
+- Memoization
+
+```
+public static int memorization(int[] cost) {
+        int[] result = new int[cost.length + 1];
+        Arrays.fill(result, -1);
+        int left = memorization(cost, 0, result);
+        Arrays.fill(result, -1);
+        int right = memorization(cost, 1, result);
+        return Math.min(left,right);
+    }
+
+    private static int memorization(int[] cost, int index, int[] result) {
+        // already left the top
+        if (index > cost.length - 1) {
+            return 0;
+        } else if (index == cost.length - 1) {
+            return cost[index];
+        } else if (result[index] != -1) {
+            return result[index];
+        } else {
+            return result[index] = cost[index]
+                    + Math.min(memorization(cost, index + 1, result), memorization(cost, index + 2, result));
+        }
+    }
+```
+
+- Tabulation
+
+little tricky start from what we know:
+
+we know we can start from index 0 and 1 and has it's result
+and final result will be minimum of last 2 index as from both index we can be on top or pass top with just 1 hop and cost of that hop is 0
+
+```
+public static int tabulation(int[] n) {
+        int[] result = new int[n.length];
+        result[0] = n[0];
+        result[1] = n[1];
+
+        for (int i = 2; i < n.length; i++) {
+            result[i] = Math.min(result[i - 1], result[i - 2]) + n[i];
+        }
+
+        return Math.min(result[result.length - 2], result[result.length - 1]);
+    }
+```
+
+- Space Optimization
+
+```
+public static int spaceOptimization(int[] n) {
+        int first = n[0];
+        int second = n[1];
+        int result;
+
+        for(int i=2;i<n.length;i++){
+            result = Math.min(first, second) + n[i];
+            first = second;
+            second = result;
+        }
+
+        return Math.min(first,second);
+    }
+```
+
+Has similar time and space complexicity as fibonacci series
+
+- Recursion
+- Memoization
+- Tabulation
+- Space Optimization
