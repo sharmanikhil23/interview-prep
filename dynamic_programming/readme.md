@@ -82,6 +82,8 @@ Reduces space complexity from `O(n)` to `O(1)`.
 2. [Minimum Cost to Climb Stair](#minimum-cost-to-climb-stair)
 3. [Minimum Number of Coins](#minimum-number-of-coins)
 4. [Maximum sum with non adjacent element](#maximum-sum-with-non-adjacent-element)
+5. [House Robbers 1](#house-robbers)
+6. [Maximum Cut segment](#maximum-cut-segment)
 
 ---
 
@@ -454,6 +456,178 @@ tc: O(n)
     TC: O(n)
     SC: 1
 
+```
+
+## House Robbers
+
+- Recursion
+
+```
+    public static int recursion(int[] data) {
+        return recursion(data, 0);
+    }
+
+    private static int recursion(int[] data, int index) {
+        if (index >= data.length) {
+            return 0;
+        }
+
+        int takeIT = data[index] + recursion(data, index + 2);
+        int notTakeIt = recursion(data, index + 1);
+
+        return Math.max(takeIT, notTakeIt);
+    }
+
+    TC: O(2^n)
+    SC: O(n) (stack)
+```
+
+- Memoization
+
+```
+    public static int memorization(int[] data) {
+        int[] result = new int[data.length];
+        Arrays.fill(result, -1);
+        return memorization(data, 0, result);
+    }
+
+    private static int memorization(int[] data, int index, int[] result) {
+        if (index >= data.length) {
+            return 0;
+        }
+
+        if (result[index] != -1) {
+            return result[index];
+        }
+        int takeIT = data[index] + memorization(data, index + 2, result);
+        int notTakeIt = memorization(data, index + 1, result);
+
+        return result[index] = Math.max(takeIT, notTakeIt);
+    }
+    TC: O(n)
+    SC: O(n) (stack) + O(n) (array)
+```
+
+- Tabulation
+
+```
+    public static int tabulation(int[] data) {
+        if (data.length == 1) {
+            return data[0];
+        } else if (data.length == 2) {
+            return Math.max(data[0], data[1]);
+        } else {
+            int[] result = new int[data.length + 1];
+            result[1] = data[0];
+            result[2] = Math.max(data[0], data[1]);
+            for (int i = 3; i < result.length; i++) {
+                int takeIt = data[i - 1] + result[i - 2];
+                int notTakeIt = result[i - 1];
+                result[i] = Math.max(takeIt, notTakeIt);
+            }
+            return result[data.length];
+        }
+    }
+    TC: O(n)
+    SC: O(n) (array)
+```
+
+- Space Optimization
+
+```
+public static int spaceOptimization(int[] data) {
+        if (data.length == 1) {
+            return data[0];
+        } else if (data.length == 2) {
+            return Math.max(data[0], data[1]);
+        } else {
+            int first = data[0];
+            int second = Math.max(data[0], data[1]);
+            for (int i = 2; i < data.length; i++) {
+                int takeIt = data[i] + first;
+                int notTakeIt = second;
+                first = second;
+                second = Math.max(takeIt, notTakeIt);
+            }
+            return second;
+        }
+    }
+```
+
+## Maximum Cut segment
+
+- Recursion
+
+```
+public static int recursion(int length, int x, int y, int z) {
+        if (length == 0) {
+            return 0;
+        } else if (length < 0) {
+            return Integer.MIN_VALUE;
+        } else {
+            int first = 1 + recursion(length - x, x, y, z);
+            int second = 1 + recursion(length - y, x, y, z);
+            int third = 1 + recursion(length - z, x, y, z);
+
+            return Math.max(first, Math.max(second, third));
+        }
+    }
+TC: O(3^n)
+SC: O(n)
+```
+
+- Memoization
+
+```
+private static int memorization(int length, int x, int y, int z, int[] result) {
+        if (length == 0) {
+            return 0;
+        } else if (length < 0) {
+            return Integer.MIN_VALUE;
+        } else if (result[length] != -1) {
+            return result[length];
+        } else {
+            int first = 1 + memorization(length - x, x, y, z, result);
+            int second = 1 + memorization(length - y, x, y, z, result);
+            int third = 1 + memorization(length - z, x, y, z, result);
+
+            return result[length] = Math.max(first, Math.max(second, third));
+        }
+    }
+
+    TC:O(n)
+    SC:O(n) + O(n)
+```
+
+- Tabulation
+
+```
+public static int tabulation(int length, int x, int y, int z) {
+        int[] result = new int[length + 1];
+
+        int[] cuts = { x, y, z };
+
+        for (int i = 1; i <= length; i++) {
+            int temp = Integer.MIN_VALUE;
+            for (int cut : cuts) {
+                if (i - cut >= 0 && result[i - cut] >= 0) {
+                    temp = Math.max(temp, 1 + result[i - cut]);
+                }
+            }
+            result[i] = temp;
+        }
+
+        return result[length] == Integer.MIN_VALUE ? 0 : result[length];
+    }
+
+    TC: O(n)
+    SC: O(n)
+```
+
+- Space Optimization
+
+```
+Not possible as x,y,z are variables and it will be hard for us know for what particular values we need to store it so not feasible
 ```
 
 Has similar time and space complexicity as fibonacci series
