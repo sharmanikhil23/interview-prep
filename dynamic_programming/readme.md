@@ -84,6 +84,8 @@ Reduces space complexity from `O(n)` to `O(1)`.
 4. [Maximum sum with non adjacent element](#maximum-sum-with-non-adjacent-element)
 5. [House Robbers 1](#house-robbers)
 6. [Maximum Cut segment](#maximum-cut-segment)
+7. [Count Dearrangement](#count-dearrangement) ☢️ Very Important
+8. [Painting Fence Algorithm](#painting-fence-algorithm) ☢️ Very Important
 
 ---
 
@@ -628,6 +630,195 @@ public static int tabulation(int length, int x, int y, int z) {
 
 ```
 Not possible as x,y,z are variables and it will be hard for us know for what particular values we need to store it so not feasible
+```
+
+## Count Dearrangement
+
+- Recursion
+
+```
+public static int recursion(int n) {
+        if (n == 0 || n == 1) {
+            return 0;
+        } else if (n == 2) {
+            return 1;
+        } else {
+            return n - 1 * (recursion(n - 1) + recursion(n - 2));
+        }
+    }
+
+TC: O(2^n)
+SC: O(n)
+```
+
+- Memoization
+
+```
+public static int memorization(int n) {
+        int[] result = new int[n + 1];
+        Arrays.fill(result, -1);
+        return memorization(n, result);
+    }
+
+    private static int memorization(int n, int[] result) {
+        if (n == 0 || n == 1) {
+            return 0;
+        } else if (n == 2) {
+            return 1;
+        } else if (result[n] != -1) {
+            return result[n];
+        } else {
+            return result[n] = (n - 1) * (memorization(n - 1, result) + memorization(n - 2, result));
+        }
+    }
+
+    TC: O(n)
+    SC: 2*O(n)
+```
+
+- Tabulation
+
+```
+public static int tabulation(int n) {
+        if (n == 0 || n == 1) {
+            return 0;
+        } else if (n == 2) {
+            return 1;
+        } else {
+            int[] result = new int[n + 1];
+            result[2] = 1;
+
+            for (int i = 3; i < result.length; i++) {
+                result[i] = (i - 1) * (result[i - 1] + result[i - 2]);
+            }
+
+            return result[n];
+        }
+    }
+    TC: O(n)
+    SC: O(n)
+```
+
+- Space Optimization
+
+```
+public static int spaceOptimization(int n) {
+         if (n == 0 || n == 1) {
+            return 0;
+        } else if (n == 2) {
+            return 1;
+        } else {
+            int first = 0;
+            int second = 1;
+            for (int i = 3; i <= n; i++) {
+                int result = (i - 1) * (first + second);
+                first = second;
+                second = result;
+            }
+            return second;
+        }
+    }
+TC: O(n)
+TC: O(1)
+```
+
+## Painting Fence Algorithm
+
+- Recursion
+
+```
+    public static int recursion(int n, int k) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return k;
+        } else if (n == 2) {
+            return k + (k * (k - 1));
+        } else {
+            return (k - 1) * (recursion(n - 1, k) + recursion(n - 2, k));
+        }
+    }
+    TC:O(2^n)
+    SC: O(n)
+```
+
+- Memoization
+
+```
+public static int memorization(int n, int k) {
+        int[] result = new int[n + 1];
+        Arrays.fill(result, -1);
+        return memorization(n, k, result);
+    }
+
+    private static int memorization(int n, int k, int[] result) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return k;
+        } else if (n == 2) {
+            return k + (k * (k - 1));
+        } else if (result[n] != -1) {
+            return result[n];
+        } else {
+            return result[n] = (k - 1) * (memorization(n - 1, k, result) + memorization(n - 2, k, result));
+        }
+    }
+    Tc:O(n)
+    sc:2*O(n)
+```
+
+- Tabulation
+
+```
+public static int tabulation(int n, int k) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return k;
+        } else if (n == 2) {
+            return k + (k * (k - 1));
+        } else {
+            int[] result = new int[n + 1];
+            result[1] = k;
+            result[2] = k + (k * (k - 1));
+
+            for (int i = 3; i <= n; i++) {
+                result[i] = (k - 1) * (result[i - 1] + result[i - 2]);
+            }
+
+            return result[n];
+        }
+    }
+    Tc:O(n)
+    sc:O(n)
+```
+
+- Space Optimization
+
+```
+public static int spaceOptimization(int n, int k) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return k;
+        } else if (n == 2) {
+            return k + (k * (k - 1));
+        } else {
+            int first = k;
+            int second = k + (k * (k - 1));
+
+            for (int i = 3; i <= n; i++) {
+                int result = (k - 1) * (first + second);
+                first = second;
+                second = result;
+            }
+
+            return second;
+        }
+    }
+    Tc:O(n)
+    sc:O(1)
 ```
 
 Has similar time and space complexicity as fibonacci series
