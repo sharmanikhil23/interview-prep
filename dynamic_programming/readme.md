@@ -13,6 +13,12 @@ Dynamic Programming is used when problems have **overlapping subproblems** and *
 
 ---
 
+## Tip
+
+Aways keep top down and bottom up approach moving in different direction then it become wasy to come with approach
+
+---
+
 ## Key Concepts
 
 ### 1. Memoization (Top-Down)
