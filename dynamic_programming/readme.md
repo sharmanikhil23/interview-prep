@@ -94,6 +94,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 8. [Painting Fence Algorithm](#painting-fence-algorithm) ☢️ Very Important
 9. [Combination Sum 4](#combination-sum-4)
 10. [Knap Sack Problem](#knap-sack-problem) ☢️ Very Important
+11. [Perfect Square](#perfect-square) ☢️ Very Important
 
 ---
 
@@ -1070,6 +1071,91 @@ SC: O(w)
 
 ```
 Cannot be done as we do not know to which previous it depend on
+```
+
+## Perfect Square
+
+- Recursion
+
+```
+ public static int recursion(int n) {
+        if (n == 0) {
+            return 0;
+        }
+
+        int max = Integer.MAX_VALUE;
+
+        for (int i = 1; i * i <= n; i++) {
+            max = Math.min(max, 1 + recursion(n - (i * i)));
+        }
+
+        return max;
+    }
+
+TC: O(sqrt(n)^n)
+SC: O(n)
+```
+
+- Memoization
+
+```
+    public static int memorization(int n) {
+        int[] result = new int[n + 1];
+        Arrays.fill(result, -1);
+        return memorization(n, result);
+    }
+
+    private static int memorization(int n, int[] result) {
+        if (n == 0) {
+            return 0;
+        } else if (result[n] != -1) {
+            return result[n];
+        } else {
+            int max = Integer.MAX_VALUE;
+
+            for (int i = 1; i * i <= n; i++) {
+                max = Math.min(max, 1 + memorization(n - (i * i), result));
+            }
+
+            return result[n] = max;
+        }
+    }
+    TC: O(n*sqrt(n))
+    SC: 2* O(n)
+
+```
+
+- Tabulation
+
+```
+    public static int tabulation(int n) {
+        if (n < 4) {
+            return n;
+        }
+        int[] result = new int[n + 1];
+        result[1] = 1;
+        result[2] = 2;
+        result[3] = 3;
+
+        for (int i = 4; i < result.length; i++) {
+            int max = Integer.MAX_VALUE;
+            for (int j = 1; j * j <= i; j++) {
+                max = Math.min(max, 1 + result[(i - (j * j))]);
+            }
+            result[i] = max;
+        }
+
+        return result[n];
+    }
+
+    Tc: O(n*sqrt(n))
+    SC: O(n)
+```
+
+- Space Optimization
+
+```
+It is not possible for this specific Dynamic Programming problem because to calculate the value for $n$, you potentially need to look back at any previous result (like $n-1$, $n-4$, $n-9$, etc.).
 ```
 
 Has similar time and space complexicity as fibonacci series
