@@ -97,6 +97,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 10. [Knap Sack Problem](#knap-sack-problem) ☢️ Very Important
 11. [Perfect Square](#perfect-square) ☢️ Very Important
 12. [Minimum Cost for Tickets](#minimum-cost-for-tickets) ☢️ Very Important
+13. [Maximum Square](#maximum-square) ☢️ Very Important
 
 ---
 
@@ -1359,6 +1360,145 @@ public int mincostTickets(int[] days, int[] costs) {
 
     return totalCost;
 }
+```
+
+## Maximum Square
+
+Approach: So we can be at any index and can check on our right, diag and down and take the smallest one out of three, that will be smallest square possible
+
+- Recursion
+
+```
+    static int max = 0;
+
+    public static int recursion(char[][] matrix) {
+        max = 0;
+        recursion(0, 0, matrix);
+        return max * max;
+    }
+
+    private static int recursion(int i, int j, char[][] matrix) {
+        if (i >= matrix.length || j >= matrix[0].length) {
+            return 0;
+        }
+
+        int right = recursion(i, j + 1, matrix);
+        int down = recursion(i + 1, j, matrix);
+        int diag = recursion(i + 1, j + 1, matrix);
+
+        if (matrix[i][j] == '1') {
+            int temp = 1 + Math.min(right, Math.min(down, diag));
+            max = Math.max(max, temp);
+            return temp;
+        }
+
+        return 0;
+    }
+    TC:O(3^M+N)
+    SC:O(M+N)
+
+```
+
+- Memoization
+
+```
+    public static int memorization(char[][] matrix) {
+        int[][] temp = new int[matrix.length][matrix[0].length];
+        for (int[] t : temp) {
+            Arrays.fill(t, -1);
+        }
+        max = 0;
+        memorization(0, 0, matrix, temp);
+        return max * max;
+    }
+
+    private static int memorization(int i, int j, char[][] matrix, int[][] temp) {
+        if (i >= matrix.length || j >= matrix[0].length) {
+            return 0;
+        }
+
+        if (temp[i][j] != -1) {
+            return temp[i][j];
+        }
+
+        int right = memorization(i, j + 1, matrix, temp);
+        int down = memorization(i + 1, j, matrix, temp);
+        int diag = memorization(i + 1, j + 1, matrix, temp);
+
+        if (matrix[i][j] == '1') {
+            int t = 1 + Math.min(right, Math.min(down, diag));
+            max = Math.max(max, t);
+            return temp[i][j] = t;
+        }
+
+        return temp[i][j] = 0;
+    }
+
+    TC:O(M*N) // visiting entire array
+    SC:O(M*N) + O(M+N)
+```
+
+- Tabulation
+
+```
+    public static int tabulation(char[][] matrix) {
+        max = 0;
+        int maxX = matrix.length;
+        int maxY = matrix[0].length;
+
+        int[][] temp = new int[maxX + 1][maxY + 1];
+
+        for (int i = maxX - 1; i >= 0; i--) {
+            for (int y = maxY - 1; y >= 0; y--) {
+
+                if (matrix[i][y] == '1') {
+                    int right = temp[i][y + 1];
+                    int down = temp[i + 1][y];
+                    int diag = temp[i + 1][y + 1];
+                    int t = 1 + Math.min(right, Math.min(down, diag));
+                    temp[i][y] = t;
+                    max = Math.max(max, t);
+                }
+            }
+        }
+
+        return max * max;
+    }
+    TC:O(M*N)
+    SC:O(M*N)
+```
+
+- Space Optimization
+
+```
+    public static int spaceOptimization(char[][] matrix) {
+        max = 0;
+        int maxX = matrix.length;
+        int maxY = matrix[0].length;
+
+        int[] dp = new int[maxY + 1];
+        for (int i = maxX - 1; i >= 0; i--) {
+
+            int diag = 0;
+
+            for (int y = maxY - 1; y >= 0; y--) {
+                int temp = dp[y];
+                if (matrix[i][y] == '1') {
+                    int t = 1 + Math.min(diag, Math.min(dp[y], dp[y + 1]));
+                    dp[y] = t;
+                    max = Math.max(max, t);
+                } else {
+                    dp[y] = 0;
+                }
+                diag = temp;
+            }
+        }
+
+        return max * max;
+    }
+
+    TC:O(M*N)
+    SC:O(N)
 ```
 
 Has similar time and space complexicity as fibonacci series
