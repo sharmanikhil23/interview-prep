@@ -98,6 +98,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 11. [Perfect Square](#perfect-square) ☢️ Very Important
 12. [Minimum Cost for Tickets](#minimum-cost-for-tickets) ☢️ Very Important
 13. [Maximum Square](#maximum-square) ☢️ Very Important
+14. [Min Score Triangulation of Polygon ](#min-score-tiangulation-of-polygon) ☢️ Very Important
 
 ---
 
@@ -1499,6 +1500,100 @@ Approach: So we can be at any index and can check on our right, diag and down an
 
     TC:O(M*N)
     SC:O(N)
+```
+
+## Min Score Triangulation of Polygon
+
+Vary nice question, always remeber what you have, 2 make triangle you need 2 points if you can freeze 1st and second and choose any k point (i,j) then you will get triable and solve the smaller problem and recusively solve the other parts too
+
+- Recursion
+
+```
+public static int recursion(int[] values) {
+        return recursion(values, 0, values.length - 1);
+    }
+
+    private static int recursion(int[] values, int i, int j) {
+        if (i + 1 == j) {
+            return 0;
+        }
+        int min = Integer.MAX_VALUE;
+
+        for (int k = i + 1; k < j; k++) {
+            int temp = values[i] * values[j] * values[k] + recursion(values, i, k) + recursion(values, k, j);
+            min = Math.min(temp, min);
+        }
+
+        return min;
+    }
+
+    TC: 2^n
+    SC: O(n)
+
+```
+
+- Memoization
+
+```
+    public static int memorization(int[] values) {
+        int[][] result = new int[values.length + 1][values.length + 1];
+
+        for (int[] r : result) {
+            Arrays.fill(r, -1);
+        }
+
+        return memorization(values, 0, values.length - 1, result);
+    }
+
+    private static int memorization(int[] values, int i, int j, int[][] result) {
+        if (i + 1 == j) {
+            return 0;
+        } else if (result[i][j] != -1) {
+            return result[i][j];
+        }
+
+        int min = Integer.MAX_VALUE;
+
+        for (int k = i + 1; k < j; k++) {
+            int temp = values[i] * values[j] * values[k] + memorization(values, i, k, result)
+                    + memorization(values, k, j, result);
+            min = Math.min(temp, min);
+        }
+
+        return result[i][j] = min;
+    }
+    TC: O(n^3) we will have n^2 unique state and each those state has n more
+    SC: O(n^2) + O(n)
+```
+
+- Tabulation
+
+```
+    public static int tabulation(int[] values) {
+        int n = values.length;
+
+        int[][] result = new int[n][n];
+
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i + 2; j < n; j++) {
+                int min = Integer.MAX_VALUE;
+                for (int k = i + 1; k < j; k++) {
+                    int temp = values[i] * values[j] * values[k] + result[i][k] + result[k][j];
+                    min = Math.min(min, temp);
+                }
+                result[i][j] = min;
+            }
+        }
+        return result[0][n - 1];
+    }
+    TC: O(n^3)
+    SC: O(n^2)
+```
+
+- Space Optimization
+
+```
+Not possible as if we see result[i][j] is dependent on result[i][k] which is in the same row so easy but result[k][j] for which value can vary from 1 to n so hard to keep track of all of them
 ```
 
 Has similar time and space complexicity as fibonacci series
