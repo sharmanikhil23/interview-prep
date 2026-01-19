@@ -6,8 +6,8 @@ import java.time.Duration;
 public class Main {
     public static void main(String[] args) {
         // question1(45);
-        int[] costs = new int[] { 1, 2, 3 };
-        System.out.println(Question14.recursion(costs));
+        int[] costs = new int[] { 0, 1, 2, 3, 0 };
+        System.out.println(Question15.recursion(costs));
     }
 
     public static void question1(int n) {
