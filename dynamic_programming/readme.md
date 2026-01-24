@@ -102,6 +102,8 @@ Reduces space complexity from `O(n)` to `O(1)`.
 15. [Minimum Sideway Jumps](#minimum-sideway-jumps) ☢️ Very Important
 16. [Reducing Dishes](#reducing-dishes) ☢️ Better Solution with Greedy
 17. [Longest Increasing Subsequence](#longest-increasing-subsequence) ☢️ Very Important must try as can be optimized more after space optimization
+18. [Maximum height by stacking cuboid]()☢️ Very Important and very hard to understand
+19. [Pizza with 3n Slices ](#pizza-with-3n-slices)☢️ Very Important
 
 ---
 
@@ -2045,6 +2047,20 @@ public static int spaceOptimizedTabulation(int[] data) {
     }
 
 ```
+
+## Pizza with 3n Slices
+
+'''
+Before solving it think about house of robbers problem as it is very similar but make sure to keep track of how many pizza slices you can choose as it is constraint in this problem
+
+| Approach            | Time Complexity | Space Complexity |
+| :------------------ | :-------------- | :--------------- |
+| **Recursion**       | $O(2^n)$        | $O(n)$           |
+| **Memorization**    | $O(n \cdot k)$  | $O(n \cdot k)$   |
+| **Tabulation**      | $O(n \cdot k)$  | $O(n \cdot k)$   |
+| **Space Optimized** | $O(n \cdot k)$  | $O(k)$           |
+
+'''
 
 - More optimized with DP and Binary Search
 
