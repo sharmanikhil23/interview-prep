@@ -5,9 +5,11 @@ import java.time.Duration;
 
 public class Main {
     public static void main(String[] args) {
-        question1(45);
+        // question1(45);
+        int[][] costs = new int[][] { { 50, 45, 20 }, { 95, 37, 53 }, { 45, 23, 12 } };
+        System.out.println(Question18.tabulation1(costs));
     }
-    
+
     public static void question1(int n) {
         Instant start = Instant.now();
         System.out.println("Basic Recursion " + Question1.fibonacci(n));
@@ -25,5 +27,5 @@ public class Main {
         System.out.println("Space Optimization " + Question1.spaceOptimization(n));
         System.out.println("It is done in " + Duration.between(start, Instant.now()).toNanos());
     }
-    
+
 }
