@@ -104,6 +104,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 17. [Longest Increasing Subsequence](#longest-increasing-subsequence) ☢️ Very Important must try as can be optimized more after space optimization
 18. [Maximum height by stacking cuboid]()☢️ Very Important and very hard to understand
 19. [Pizza with 3n Slices ](#pizza-with-3n-slices)☢️ Very Important
+20. [Number of Dice Rolls With Target Sum](#number-of-dice-rolls-with-target-sum) Can be further optimized with sliding window
 
 ---
 
@@ -2050,8 +2051,9 @@ public static int spaceOptimizedTabulation(int[] data) {
 
 ## Pizza with 3n Slices
 
-'''
+```
 Before solving it think about house of robbers problem as it is very similar but make sure to keep track of how many pizza slices you can choose as it is constraint in this problem
+```
 
 | Approach            | Time Complexity | Space Complexity |
 | :------------------ | :-------------- | :--------------- |
@@ -2060,7 +2062,19 @@ Before solving it think about house of robbers problem as it is very similar but
 | **Tabulation**      | $O(n \cdot k)$  | $O(n \cdot k)$   |
 | **Space Optimized** | $O(n \cdot k)$  | $O(k)$           |
 
-'''
+## Number of Dice Rolls With Target Sum
+
+```
+Not a tough problem and easy tabulation.
+Make sure to use all dice and cover all edge cases.
+```
+
+| Approach            | Time Complexity     | Space Complexity |
+| ------------------- | ------------------- | ---------------- |
+| **Recursion**       | _O(kⁿ)_             | _O(n)_           |
+| **Memoization**     | _O(n · k · target)_ | _O(n · target)_  |
+| **Tabulation**      | _O(n · k · target)_ | _O(n · target)_  |
+| **Space Optimized** | _O(n · k · target)_ | _O(target)_      |
 
 - More optimized with DP and Binary Search
 
