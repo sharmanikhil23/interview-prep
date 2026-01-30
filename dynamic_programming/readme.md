@@ -105,6 +105,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 18. [Maximum height by stacking cuboid]()☢️ Very Important and very hard to understand
 19. [Pizza with 3n Slices ](#pizza-with-3n-slices)☢️ Very Important
 20. [Number of Dice Rolls With Target Sum](#number-of-dice-rolls-with-target-sum) Can be further optimized with sliding window
+21. [Partition Equal Subset Sum](#partition-equal-subset-sum)
 
 ---
 
@@ -2076,7 +2077,22 @@ Make sure to use all dice and cover all edge cases.
 | **Tabulation**      | _O(n · k · target)_ | _O(n · target)_  |
 | **Space Optimized** | _O(n · k · target)_ | _O(target)_      |
 
-- More optimized with DP and Binary Search
+## Partition Equal Subset Sum
+
+```
+This is easy question but need to redefine the problem
+
+If sum of all the elements are odd mean cannot be divided into 2 different subsets so false
+
+If even then try to see can we able to get half of that sum from array if yes then true else false
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n · T)_      | _O(n · T)_       |
+| **Tabulation**      | _O(n · T)_      | _O(n · T)_       |
+| **Space Optimized** | _O(n · T)_      | _O(T)_           |
 
 Has similar time and space complexicity as fibonacci series
 
