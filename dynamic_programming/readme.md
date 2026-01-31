@@ -106,6 +106,8 @@ Reduces space complexity from `O(n)` to `O(1)`.
 19. [Pizza with 3n Slices ](#pizza-with-3n-slices)☢️ Very Important
 20. [Number of Dice Rolls With Target Sum](#number-of-dice-rolls-with-target-sum) Can be further optimized with sliding window
 21. [Partition Equal Subset Sum](#partition-equal-subset-sum)
+22. [Longest Arithmetic Subsequence](#longest-arithmetic-subsequence)☢️ Very Important must try
+23. [Longest Arithmetic Subsequence of Given Difference](#longest-arithmetic-subsequence-of-given-difference)☢️ Very Important must try
 
 ---
 
@@ -2093,6 +2095,40 @@ If even then try to see can we able to get half of that sum from array if yes th
 | **Memoization**     | _O(n · T)_      | _O(n · T)_       |
 | **Tabulation**      | _O(n · T)_      | _O(n · T)_       |
 | **Space Optimized** | _O(n · T)_      | _O(T)_           |
+
+## Longest Arithmetic Subsequence
+
+```
+This is very very nice probleam and make you think little extra
+
+So we try to check every paid and use it's difference to see if there is any element in the back whose difference (newElm - pair[left]) == diff (pair[rigt]-pair[left])
+
+if use add it and recursiverly look further
+
+For memoriazation now rather than using an array we used the array of hashmap as every index can have different number of the the diff
+
+and in space optimization as we know the no of element is 500 and if we include - ve as well as 0 then 1001 so make that array
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(n^2 \* 2ⁿ)_  | _O(n)_           |
+| **Memoization**     | _O(n^2)_        | _O(n^2)_         |
+| **Tabulation**      | _O(n^2)_        | _O(n^2)_         |
+| **Space Optimized** | _O(n^2)_        | _O(n\*d)_        |
+
+## Longest Arithmetic Subsequence of Given Difference
+
+```
+Very Similar to above but still little challanging
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n^2)_        | _O(n)_           |
+| **Tabulation**      | _O(n)_          | _O(n)_           |
+| **Space Optimized** | _O(n)_          | _O(range)_       |
 
 Has similar time and space complexicity as fibonacci series
 
