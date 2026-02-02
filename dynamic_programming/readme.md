@@ -2130,7 +2130,21 @@ Very Similar to above but still little challanging
 | **Tabulation**      | _O(n)_          | _O(n)_           |
 | **Space Optimized** | _O(n)_          | _O(range)_       |
 
-Has similar time and space complexicity as fibonacci series
+## Unique Binary Search Trees
+
+```
+This is very unique problem, the solution depend on which element you pick as the root but do not forget you have to choose all of the different
+roots to cover all of the cases
+
+This problem can be easily solved with Catalan Numbers
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n^2)_        | _O(n)_           |
+| **Tabulation**      | _O(n^2)_        | _O(n)_           |
+| **Space Optimized** |                 |                  |
 
 - Recursion
 - Memoization
