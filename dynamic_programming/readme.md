@@ -2146,6 +2146,22 @@ This problem can be easily solved with Catalan Numbers
 | **Tabulation**      | _O(n^2)_        | _O(n)_           |
 | **Space Optimized** |                 |                  |
 
+## Guess Number Higher or Lower II
+
+```
+This is not the tough question but to come to recursive solution is little hard and require alot of thinking
+
+Cannot be more optimized
+
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n^3)_        | _O(n^2)_         |
+| **Tabulation**      | _O(n^3)_        | _O(n^2)_         |
+| **Space Optimized** |                 |                  |
+
 - Recursion
 - Memoization
 - Tabulation
