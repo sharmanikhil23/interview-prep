@@ -102,6 +102,14 @@ Reduces space complexity from `O(n)` to `O(1)`.
 15. [Minimum Sideway Jumps](#minimum-sideway-jumps) ☢️ Very Important
 16. [Reducing Dishes](#reducing-dishes) ☢️ Better Solution with Greedy
 17. [Longest Increasing Subsequence](#longest-increasing-subsequence) ☢️ Very Important must try as can be optimized more after space optimization
+18. [Maximum height by stacking cuboid]()☢️ Very Important and very hard to understand
+19. [Pizza with 3n Slices ](#pizza-with-3n-slices)☢️ Very Important
+20. [Number of Dice Rolls With Target Sum](#number-of-dice-rolls-with-target-sum) Can be further optimized with sliding window
+21. [Partition Equal Subset Sum](#partition-equal-subset-sum)
+22. [Longest Arithmetic Subsequence](#longest-arithmetic-subsequence)☢️ Very Important must try
+23. [Longest Arithmetic Subsequence of Given Difference](#longest-arithmetic-subsequence-of-given-difference)☢️ Very Important must try
+24. [Minimum Cost Tree From Leaf Values](#minimum-cost-tree-from-leaf-values)☢️ Very Important must try (can be more optmized with stacks)
+25. [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)☢️ Very Important must try (Think simple not just with the mind of recursion)
 
 ---
 
@@ -2046,9 +2054,141 @@ public static int spaceOptimizedTabulation(int[] data) {
 
 ```
 
-- More optimized with DP and Binary Search
+## Pizza with 3n Slices
 
-Has similar time and space complexicity as fibonacci series
+```
+Before solving it think about house of robbers problem as it is very similar but make sure to keep track of how many pizza slices you can choose as it is constraint in this problem
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| :------------------ | :-------------- | :--------------- |
+| **Recursion**       | $O(2^n)$        | $O(n)$           |
+| **Memorization**    | $O(n \cdot k)$  | $O(n \cdot k)$   |
+| **Tabulation**      | $O(n \cdot k)$  | $O(n \cdot k)$   |
+| **Space Optimized** | $O(n \cdot k)$  | $O(k)$           |
+
+## Number of Dice Rolls With Target Sum
+
+```
+Not a tough problem and easy tabulation.
+Make sure to use all dice and cover all edge cases.
+```
+
+| Approach            | Time Complexity     | Space Complexity |
+| ------------------- | ------------------- | ---------------- |
+| **Recursion**       | _O(kⁿ)_             | _O(n)_           |
+| **Memoization**     | _O(n · k · target)_ | _O(n · target)_  |
+| **Tabulation**      | _O(n · k · target)_ | _O(n · target)_  |
+| **Space Optimized** | _O(n · k · target)_ | _O(target)_      |
+
+## Partition Equal Subset Sum
+
+```
+This is easy question but need to redefine the problem
+
+If sum of all the elements are odd mean cannot be divided into 2 different subsets so false
+
+If even then try to see can we able to get half of that sum from array if yes then true else false
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n · T)_      | _O(n · T)_       |
+| **Tabulation**      | _O(n · T)_      | _O(n · T)_       |
+| **Space Optimized** | _O(n · T)_      | _O(T)_           |
+
+## Longest Arithmetic Subsequence
+
+```
+This is very very nice probleam and make you think little extra
+
+So we try to check every paid and use it's difference to see if there is any element in the back whose difference (newElm - pair[left]) == diff (pair[rigt]-pair[left])
+
+if use add it and recursiverly look further
+
+For memoriazation now rather than using an array we used the array of hashmap as every index can have different number of the the diff
+
+and in space optimization as we know the no of element is 500 and if we include - ve as well as 0 then 1001 so make that array
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(n^2 \* 2ⁿ)_  | _O(n)_           |
+| **Memoization**     | _O(n^2)_        | _O(n^2)_         |
+| **Tabulation**      | _O(n^2)_        | _O(n^2)_         |
+| **Space Optimized** | _O(n^2)_        | _O(n\*d)_        |
+
+## Longest Arithmetic Subsequence of Given Difference
+
+```
+Very Similar to above but still little challanging
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n^2)_        | _O(n)_           |
+| **Tabulation**      | _O(n)_          | _O(n)_           |
+| **Space Optimized** | _O(n)_          | _O(range)_       |
+
+## Unique Binary Search Trees
+
+```
+This is very unique problem, the solution depend on which element you pick as the root but do not forget you have to choose all of the different
+roots to cover all of the cases
+
+This problem can be easily solved with Catalan Numbers
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n^2)_        | _O(n)_           |
+| **Tabulation**      | _O(n^2)_        | _O(n)_           |
+| **Space Optimized** |                 |                  |
+
+## Guess Number Higher or Lower II
+
+```
+This is not the tough question but to come to recursive solution is little hard and require alot of thinking
+
+Cannot be more optimized
+
+```
+
+| Approach            | Time Complexity | Space Complexity |
+| ------------------- | --------------- | ---------------- |
+| **Recursion**       | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**     | _O(n^3)_        | _O(n^2)_         |
+| **Tabulation**      | _O(n^3)_        | _O(n^2)_         |
+| **Space Optimized** |                 |                  |
+
+## Minimum Cost Tree From Leaf Values
+
+```
+The hardest part of this question is to find the recurrance relation ship and solve it
+
+This question is not much optimized when solved with recursion but can we done way better with Monotonic Stack
+```
+
+| Approach                 | Time Complexity | Space Complexity |
+| ------------------------ | --------------- | ---------------- |
+| **Recursion**            | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**          | _O(n^4)_        | _O(n^2)_         |
+| **Tabulation**           | _O(n^4)_        | _O(n^2)_         |
+| **Optimized Tabulation** | _O(n^3)_        | _O(n^2)_         |
+| **Monotonic Stack**      | _O(n)_          | _O(n)_           |
+
+## Best Time to Buy and Sell Stock
+
+```
+Open your mind i know we are doing recursion play list but have to open the mind as it can be just done with iterative solution
+```
+
+| Approach      | Time Complexity | Space Complexity |
+| ------------- | --------------- | ---------------- |
+| **Iterative** | _O(n)_          | _O(1)_           |
 
 - Recursion
 - Memoization
