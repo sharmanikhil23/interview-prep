@@ -108,7 +108,8 @@ Reduces space complexity from `O(n)` to `O(1)`.
 21. [Partition Equal Subset Sum](#partition-equal-subset-sum)
 22. [Longest Arithmetic Subsequence](#longest-arithmetic-subsequence)☢️ Very Important must try
 23. [Longest Arithmetic Subsequence of Given Difference](#longest-arithmetic-subsequence-of-given-difference)☢️ Very Important must try
-24. [Minimum Cost Tree From Leaf Values](#minimum-cost-tree-from-leaf-values)☢️ Very Important must try
+24. [Minimum Cost Tree From Leaf Values](#minimum-cost-tree-from-leaf-values)☢️ Very Important must try (can be more optmized with stacks)
+25. [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)☢️ Very Important must try (Think simple not just with the mind of recursion)
 
 ---
 
@@ -2178,6 +2179,16 @@ This question is not much optimized when solved with recursion but can we done w
 | **Tabulation**           | _O(n^4)_        | _O(n^2)_         |
 | **Optimized Tabulation** | _O(n^3)_        | _O(n^2)_         |
 | **Monotonic Stack**      | _O(n)_          | _O(n)_           |
+
+## Best Time to Buy and Sell Stock
+
+```
+Open your mind i know we are doing recursion play list but have to open the mind as it can be just done with iterative solution
+```
+
+| Approach      | Time Complexity | Space Complexity |
+| ------------- | --------------- | ---------------- |
+| **Iterative** | _O(n)_          | _O(1)_           |
 
 - Recursion
 - Memoization
