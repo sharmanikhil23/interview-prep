@@ -1,5 +1,7 @@
 package dynamic_programming;
 
+import java.util.Arrays;
+
 public class Question25 {
 
     public int getMoneyAmount(int n) {

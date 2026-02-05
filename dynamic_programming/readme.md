@@ -108,6 +108,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 21. [Partition Equal Subset Sum](#partition-equal-subset-sum)
 22. [Longest Arithmetic Subsequence](#longest-arithmetic-subsequence)☢️ Very Important must try
 23. [Longest Arithmetic Subsequence of Given Difference](#longest-arithmetic-subsequence-of-given-difference)☢️ Very Important must try
+24. [Minimum Cost Tree From Leaf Values](#minimum-cost-tree-from-leaf-values)☢️ Very Important must try
 
 ---
 
@@ -2161,6 +2162,22 @@ Cannot be more optimized
 | **Memoization**     | _O(n^3)_        | _O(n^2)_         |
 | **Tabulation**      | _O(n^3)_        | _O(n^2)_         |
 | **Space Optimized** |                 |                  |
+
+## Minimum Cost Tree From Leaf Values
+
+```
+The hardest part of this question is to find the recurrance relation ship and solve it
+
+This question is not much optimized when solved with recursion but can we done way better with Monotonic Stack
+```
+
+| Approach                 | Time Complexity | Space Complexity |
+| ------------------------ | --------------- | ---------------- |
+| **Recursion**            | _O(2ⁿ)_         | _O(n)_           |
+| **Memoization**          | _O(n^4)_        | _O(n^2)_         |
+| **Tabulation**           | _O(n^4)_        | _O(n^2)_         |
+| **Optimized Tabulation** | _O(n^3)_        | _O(n^2)_         |
+| **Monotonic Stack**      | _O(n)_          | _O(n)_           |
 
 - Recursion
 - Memoization
