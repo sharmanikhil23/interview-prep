@@ -111,6 +111,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 24. [Minimum Cost Tree From Leaf Values](#minimum-cost-tree-from-leaf-values)☢️ Very Important must try (can be more optmized with stacks)
 25. [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)☢️ Very Important must try (Think simple not just with the mind of recursion)
 26. [Best Time to Buy and Sell Stock II](#best-time-to-buy-and-sell-stock-II)☢️ Very Important must try
+27. [## Best Time to Buy and Sell Stock III](best-time-to-buy-and-sell-stock-III)☢️ Very Important must try(for tabulation just think to cover all states and don't over think)
 
 ---
 
@@ -2203,6 +2204,19 @@ Not a tough question just make sure you understand the question completely
 | **Memoization**          | _O(n\*2)_ =_O(n)_ | _O(n\*2)+O(n)_ =_O(n)_ |
 | **Tabulation**           | _O(n\*2)_ =_O(n)_ | _O(n\*2)_ =_O(n)_      |
 | **Optimized Tabulation** | _O(n\*2)_ =_O(n)_ | _O(2)_                 |
+
+## Best Time to Buy and Sell Stock III
+
+```
+Very Similar to above just now we have limit on number of transactions we can make
+```
+
+| Approach                 | Time Complexity      | Space Complexity          |
+| ------------------------ | -------------------- | ------------------------- |
+| **Recursion**            | _O(2ⁿ)_              | _O(n)_                    |
+| **Memoization**          | _O(n\*2\*3)_ =_O(n)_ | _O(n\*2\*3)+O(n)_ =_O(n)_ |
+| **Tabulation**           | _O(n\*2\*3)_ =_O(n)_ | _O(n\*2\*3)_ =_O(n)_      |
+| **Optimized Tabulation** | _O(n\*2\*3)_ =_O(n)_ | _O(2\*3)_ = _O(1)_        |
 
 - Recursion
 - Memoization
