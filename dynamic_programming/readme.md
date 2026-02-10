@@ -111,7 +111,9 @@ Reduces space complexity from `O(n)` to `O(1)`.
 24. [Minimum Cost Tree From Leaf Values](#minimum-cost-tree-from-leaf-values)☢️ Very Important must try (can be more optmized with stacks)
 25. [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)☢️ Very Important must try (Think simple not just with the mind of recursion)
 26. [Best Time to Buy and Sell Stock II](#best-time-to-buy-and-sell-stock-II)☢️ Very Important must try
-27. [## Best Time to Buy and Sell Stock III](best-time-to-buy-and-sell-stock-III)☢️ Very Important must try(for tabulation just think to cover all states and don't over think)
+27. [Best Time to Buy and Sell Stock III](#best-time-to-buy-and-sell-stock-III)☢️ Very Important must try(for tabulation just think to cover all states and don't over think)
+28. [Best Time to Buy and Sell Stock IV](#best-time-to-buy-and-sell-stock-IV)☢️ Very Important must try
+29. [Best Time to Buy and Sell Stock V](#best-time-to-buy-and-sell-stock-V)☢️ Very Important must try (chanllange to manage all of the states)
 
 ---
 
@@ -2217,6 +2219,32 @@ Very Similar to above just now we have limit on number of transactions we can ma
 | **Memoization**          | _O(n\*2\*3)_ =_O(n)_ | _O(n\*2\*3)+O(n)_ =_O(n)_ |
 | **Tabulation**           | _O(n\*2\*3)_ =_O(n)_ | _O(n\*2\*3)_ =_O(n)_      |
 | **Optimized Tabulation** | _O(n\*2\*3)_ =_O(n)_ | _O(2\*3)_ = _O(1)_        |
+
+## Best Time to Buy and Sell Stock IV
+
+```
+99% similar than before just rather than having 2 max transactions now we have K
+```
+
+| Approach                 | Time Complexity         | Space Complexity             |
+| ------------------------ | ----------------------- | ---------------------------- |
+| **Recursion**            | _O(2ⁿ)_                 | _O(n)_                       |
+| **Memoization**          | _O(n\*2\*K)_ =_O(n\*K)_ | _O(n\*2\*K)+O(n)_ =_O(n\*K)_ |
+| **Tabulation**           | _O(n\*2\*K)_ =_O(n\*K)_ | _O(n\*2\*K)_ =_O(n\*K)_      |
+| **Optimized Tabulation** | _O(n\*2\*K)_ =_O(n\*K)_ | _O(2\*K)_ = _O(K)_           |
+
+## Best Time to Buy and Sell Stock V
+
+```
+99% similar than before but the hard part is to know how to deal with different states
+```
+
+| Approach                 | Time Complexity         | Space Complexity             |
+| ------------------------ | ----------------------- | ---------------------------- |
+| **Recursion**            | _O(2ⁿ)_                 | _O(n)_                       |
+| **Memoization**          | _O(n\*3\*K)_ =_O(n\*K)_ | _O(n\*3\*K)+O(n)_ =_O(n\*K)_ |
+| **Tabulation**           | _O(n\*3\*K)_ =_O(n\*K)_ | _O(n\*3\*K)_ =_O(n\*K)_      |
+| **Optimized Tabulation** | _O(n\*3\*K)_ =_O(n\*K)_ | _O(3\*K)_ = _O(K)_           |
 
 - Recursion
 - Memoization
