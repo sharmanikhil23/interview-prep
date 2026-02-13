@@ -115,6 +115,8 @@ Reduces space complexity from `O(n)` to `O(1)`.
 28. [Best Time to Buy and Sell Stock IV](#best-time-to-buy-and-sell-stock-IV)☢️ Very Important must try
 29. [Best Time to Buy and Sell Stock V](#best-time-to-buy-and-sell-stock-V)☢️ Very Important must try (chanllange to manage all of the states)
 30. [Longest Common Subsequence](#longest-common-subsequence)☢️ Very Important must try
+31. [Longest Palindromic Subsequence](#longest-palindromic-subsequence)☢️ Very Important must try
+32. [Edit Distance](#edit-distance)☢️ Very Important must try
 
 ---
 
@@ -2275,6 +2277,19 @@ We can have any variable called reverse with reversed string and then we are jus
 | Approach                 | Time Complexity | Space Complexity   |
 | ------------------------ | --------------- | ------------------ |
 | **Recursion**            | _O(2^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
+
+## Edit Distance
+
+```
+Easy Question just not try to change strings and try to come up with simple solution
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(3^(n+m))_    | _O(n+m)_           |
 | **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
 | **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
 | **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
