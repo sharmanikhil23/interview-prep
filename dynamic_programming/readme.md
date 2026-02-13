@@ -114,6 +114,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 27. [Best Time to Buy and Sell Stock III](#best-time-to-buy-and-sell-stock-III)☢️ Very Important must try(for tabulation just think to cover all states and don't over think)
 28. [Best Time to Buy and Sell Stock IV](#best-time-to-buy-and-sell-stock-IV)☢️ Very Important must try
 29. [Best Time to Buy and Sell Stock V](#best-time-to-buy-and-sell-stock-V)☢️ Very Important must try (chanllange to manage all of the states)
+30. [Longest Common Subsequence](#longest-common-subsequence)☢️ Very Important must try
 
 ---
 
@@ -2245,6 +2246,38 @@ Very Similar to above just now we have limit on number of transactions we can ma
 | **Memoization**          | _O(n\*3\*K)_ =_O(n\*K)_ | _O(n\*3\*K)+O(n)_ =_O(n\*K)_ |
 | **Tabulation**           | _O(n\*3\*K)_ =_O(n\*K)_ | _O(n\*3\*K)_ =_O(n\*K)_      |
 | **Optimized Tabulation** | _O(n\*3\*K)_ =_O(n\*K)_ | _O(3\*K)_ = _O(K)_           |
+
+## Longest Common Subsequence
+
+```
+Very interesting question to do
+
+Always come in mind to store in hashset and compare but has better solution with recursion
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(2^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
+
+## Longest Palindromic Subsequence
+
+```
+There 2 main ideas to do it first is find all the subsequences and then check which one is longest
+
+or
+
+We can have any variable called reverse with reversed string and then we are just finding longest common subsequences
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(2^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
 
 - Recursion
 - Memoization
