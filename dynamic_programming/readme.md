@@ -117,6 +117,7 @@ Reduces space complexity from `O(n)` to `O(1)`.
 30. [Longest Common Subsequence](#longest-common-subsequence)☢️ Very Important must try
 31. [Longest Palindromic Subsequence](#longest-palindromic-subsequence)☢️ Very Important must try
 32. [Edit Distance](#edit-distance)☢️ Very Important must try
+33. [Maximal Rectangle](#maximal-rectangle)☢️ Very Important must try
 
 ---
 
@@ -2290,6 +2291,30 @@ Easy Question just not try to change strings and try to come up with simple solu
 | Approach                 | Time Complexity | Space Complexity   |
 | ------------------------ | --------------- | ------------------ |
 | **Recursion**            | _O(3^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
+
+## Maximal Rectangle
+
+```
+This is very good question without knowing about LARGEST RECTANGLE IN HISTOGRAM it cannot be solved so we basically try to make new histogram using different rows and try to find the largest one
+```
+
+| Approach      | Time Complexity | Space Complexity |
+| ------------- | --------------- | ---------------- |
+| **Recursion** | _O(r*c*r)_      | _O(c)_           |
+| **Iterative** | _O(r\*c)_       | _O(c)_           |
+
+## Wildcard Matching
+
+```
+Not that tough question only hard part is to cover all the edge cases
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(2^(n+m))_    | _O(n+m)_           |
 | **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
 | **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
 | **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
