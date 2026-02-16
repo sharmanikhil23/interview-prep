@@ -110,6 +110,14 @@ Reduces space complexity from `O(n)` to `O(1)`.
 23. [Longest Arithmetic Subsequence of Given Difference](#longest-arithmetic-subsequence-of-given-difference)☢️ Very Important must try
 24. [Minimum Cost Tree From Leaf Values](#minimum-cost-tree-from-leaf-values)☢️ Very Important must try (can be more optmized with stacks)
 25. [Best Time to Buy and Sell Stock](#best-time-to-buy-and-sell-stock)☢️ Very Important must try (Think simple not just with the mind of recursion)
+26. [Best Time to Buy and Sell Stock II](#best-time-to-buy-and-sell-stock-II)☢️ Very Important must try
+27. [Best Time to Buy and Sell Stock III](#best-time-to-buy-and-sell-stock-III)☢️ Very Important must try(for tabulation just think to cover all states and don't over think)
+28. [Best Time to Buy and Sell Stock IV](#best-time-to-buy-and-sell-stock-IV)☢️ Very Important must try
+29. [Best Time to Buy and Sell Stock V](#best-time-to-buy-and-sell-stock-V)☢️ Very Important must try (chanllange to manage all of the states)
+30. [Longest Common Subsequence](#longest-common-subsequence)☢️ Very Important must try
+31. [Longest Palindromic Subsequence](#longest-palindromic-subsequence)☢️ Very Important must try
+32. [Edit Distance](#edit-distance)☢️ Very Important must try
+33. [Maximal Rectangle](#maximal-rectangle)☢️ Very Important must try
 
 ---
 
@@ -2189,6 +2197,127 @@ Open your mind i know we are doing recursion play list but have to open the mind
 | Approach      | Time Complexity | Space Complexity |
 | ------------- | --------------- | ---------------- |
 | **Iterative** | _O(n)_          | _O(1)_           |
+
+## Best Time to Buy and Sell Stock II
+
+```
+Not a tough question just make sure you understand the question completely
+```
+
+| Approach                 | Time Complexity   | Space Complexity       |
+| ------------------------ | ----------------- | ---------------------- |
+| **Recursion**            | _O(2ⁿ)_           | _O(n)_                 |
+| **Memoization**          | _O(n\*2)_ =_O(n)_ | _O(n\*2)+O(n)_ =_O(n)_ |
+| **Tabulation**           | _O(n\*2)_ =_O(n)_ | _O(n\*2)_ =_O(n)_      |
+| **Optimized Tabulation** | _O(n\*2)_ =_O(n)_ | _O(2)_                 |
+
+## Best Time to Buy and Sell Stock III
+
+```
+Very Similar to above just now we have limit on number of transactions we can make
+```
+
+| Approach                 | Time Complexity      | Space Complexity          |
+| ------------------------ | -------------------- | ------------------------- |
+| **Recursion**            | _O(2ⁿ)_              | _O(n)_                    |
+| **Memoization**          | _O(n\*2\*3)_ =_O(n)_ | _O(n\*2\*3)+O(n)_ =_O(n)_ |
+| **Tabulation**           | _O(n\*2\*3)_ =_O(n)_ | _O(n\*2\*3)_ =_O(n)_      |
+| **Optimized Tabulation** | _O(n\*2\*3)_ =_O(n)_ | _O(2\*3)_ = _O(1)_        |
+
+## Best Time to Buy and Sell Stock IV
+
+```
+99% similar than before just rather than having 2 max transactions now we have K
+```
+
+| Approach                 | Time Complexity         | Space Complexity             |
+| ------------------------ | ----------------------- | ---------------------------- |
+| **Recursion**            | _O(2ⁿ)_                 | _O(n)_                       |
+| **Memoization**          | _O(n\*2\*K)_ =_O(n\*K)_ | _O(n\*2\*K)+O(n)_ =_O(n\*K)_ |
+| **Tabulation**           | _O(n\*2\*K)_ =_O(n\*K)_ | _O(n\*2\*K)_ =_O(n\*K)_      |
+| **Optimized Tabulation** | _O(n\*2\*K)_ =_O(n\*K)_ | _O(2\*K)_ = _O(K)_           |
+
+## Best Time to Buy and Sell Stock V
+
+```
+99% similar than before but the hard part is to know how to deal with different states
+```
+
+| Approach                 | Time Complexity         | Space Complexity             |
+| ------------------------ | ----------------------- | ---------------------------- |
+| **Recursion**            | _O(2ⁿ)_                 | _O(n)_                       |
+| **Memoization**          | _O(n\*3\*K)_ =_O(n\*K)_ | _O(n\*3\*K)+O(n)_ =_O(n\*K)_ |
+| **Tabulation**           | _O(n\*3\*K)_ =_O(n\*K)_ | _O(n\*3\*K)_ =_O(n\*K)_      |
+| **Optimized Tabulation** | _O(n\*3\*K)_ =_O(n\*K)_ | _O(3\*K)_ = _O(K)_           |
+
+## Longest Common Subsequence
+
+```
+Very interesting question to do
+
+Always come in mind to store in hashset and compare but has better solution with recursion
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(2^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
+
+## Longest Palindromic Subsequence
+
+```
+There 2 main ideas to do it first is find all the subsequences and then check which one is longest
+
+or
+
+We can have any variable called reverse with reversed string and then we are just finding longest common subsequences
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(2^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
+
+## Edit Distance
+
+```
+Easy Question just not try to change strings and try to come up with simple solution
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(3^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
+
+## Maximal Rectangle
+
+```
+This is very good question without knowing about LARGEST RECTANGLE IN HISTOGRAM it cannot be solved so we basically try to make new histogram using different rows and try to find the largest one
+```
+
+| Approach      | Time Complexity | Space Complexity |
+| ------------- | --------------- | ---------------- |
+| **Recursion** | _O(r*c*r)_      | _O(c)_           |
+| **Iterative** | _O(r\*c)_       | _O(c)_           |
+
+## Wildcard Matching
+
+```
+Not that tough question only hard part is to cover all the edge cases
+```
+
+| Approach                 | Time Complexity | Space Complexity   |
+| ------------------------ | --------------- | ------------------ |
+| **Recursion**            | _O(2^(n+m))_    | _O(n+m)_           |
+| **Memoization**          | _O(n\*m)_       | _O(n\*m)_+_O(n+m)_ |
+| **Tabulation**           | _O(n\*m)_       | _O(n\*m)_          |
+| **Optimized Tabulation** | _O(n\*m)_       | _O(M)_             |
 
 - Recursion
 - Memoization
