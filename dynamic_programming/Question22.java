@@ -1,6 +1,6 @@
 package dynamic_programming;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Question22 {
     public int longestArithSeqLength(int[] nums) {
@@ -40,7 +40,7 @@ public class Question22 {
 
         int maxLen = 0;
 
-        HashMap<Integer, Integer>[] dp = new HashMap[n];
+        HashMap<Integer, Integer>[] dp = new HashMap<>[n];
 
         for (int i = 0; i < n; i++) {
             dp[i] = new HashMap<>();
@@ -62,7 +62,7 @@ public class Question22 {
         if (nums.length <= 2)
             return nums.length;
         int ans = 0;
-        HashMap<Integer, Integer>[] result = new HashMap[nums.length];
+        HashMap<Integer, Integer>[] result = new HashMap<>[nums.length];
         for (int i = 0; i < nums.length; i++) {
             result[i] = new HashMap<>();
         }
