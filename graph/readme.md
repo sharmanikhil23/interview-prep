@@ -53,4 +53,14 @@ Very Simple Question just use basic dfs or bfs for this one
 
 | Approach | Time Complexity | Space Complexity | Why                        |
 | -------- | --------------- | ---------------- | -------------------------- |
-| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Rotting Oranges
+
+```
+Not a tough one but there can be multiple things going on at the same time so have to use bfs and make sure to check the null properly in queue
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
