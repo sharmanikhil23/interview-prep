@@ -64,3 +64,14 @@ Not a tough one but there can be multiple things going on at the same time so ha
 | Approach | Time Complexity | Space Complexity | Why                        |
 | -------- | --------------- | ---------------- | -------------------------- |
 | **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Connected Components in BFS and DFS
+
+```
+The question is simple but make sure to see the input properly and follow the proceduce draw it then solve it
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
