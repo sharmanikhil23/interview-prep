@@ -10,6 +10,13 @@ Always make sure we traverse over all of the components as nodes can be non conn
 2. [Number of Provinces](#Number-of-provinces)
 3. [Number of Islands](#Number-of-Islands)
 4. [Flood Fill](#flood-fill)
+5. [Rotten oranges](#rotting-oranges)
+6. [Cycle Detection](#cycle-detection)
+7. [01 Matrix](#01-matrix)
+8. [Surrounded Regions](#surrounded-regions)
+9. [Number of Enclaves](#number-of-enclaves)
+10. [Distinct Island](#number-of-islands-1)
+11. [Bipartite Graph](#bipartitie-graph)
 
 ## BFS and DFS
 
@@ -74,4 +81,69 @@ The question is simple but make sure to see the input properly and follow the pr
 | Approach | Time Complexity | Space Complexity | Why                        |
 | -------- | --------------- | ---------------- | -------------------------- |
 | **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
-| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## 01 Matrix
+
+```
+Still stuck in this as thinking should be solved with dfs too
+```
+
+## Surrounded Regions
+
+```
+Easy question just solve from edges don't start doing something inside as it can messup stuff
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Number of Enclaves
+
+```
+Again very easy and dead similar to above one
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Distinct Islands
+
+```
+This is not that tough question but there are couple of things you have to take care of this
+First you have to use some datastructure, which store the unique in form of the array list
+
+another important thing to remember is we have to keep hold of initial postition as we are calculating all other connected nodes
+```
+
+| Approach | Time Complexity | Space Complexity | Why             |
+| -------- | --------------- | ---------------- | --------------- |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
+
+## Cycle Detection
+
+```
+Again very easy
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## BiPartitie Graph
+
+```
+Gaph with either zero cycles or even number of cycles
+
+A graph is bipartite if its vertices can be divided into two independent, disjoint sets (let's call them $U$ and $V$) such that every edge in the graph connects a vertex in $U$ to a vertex in $V$
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
