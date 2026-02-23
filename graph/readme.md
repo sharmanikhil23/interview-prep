@@ -11,12 +11,13 @@ Always make sure we traverse over all of the components as nodes can be non conn
 3. [Number of Islands](#Number-of-Islands)
 4. [Flood Fill](#flood-fill)
 5. [Rotten oranges](#rotting-oranges)
-6. [Cycle Detection](#cycle-detection)
+6. [Cycle Detection Non Directed](#cycle-detection)
 7. [01 Matrix](#01-matrix)
 8. [Surrounded Regions](#surrounded-regions)
 9. [Number of Enclaves](#number-of-enclaves)
 10. [Distinct Island](#number-of-islands-1)
 11. [Bipartite Graph](#bipartitie-graph)
+12. [Is Cycle in Directed With DFS](#is-cycle-in-directed-with-dfs) Must Do it
 
 ## BFS and DFS
 
@@ -147,3 +148,13 @@ A graph is bipartite if its vertices can be divided into two independent, disjoi
 | -------- | --------------- | ---------------- | -------------------------- |
 | **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
 | **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Is Cycle in Directed With DFS
+
+```
+Simple but need to change thinking now as we are done exploring one side we need to undo the visited oen
+```
+
+| Approach | Time Complexity | Space Complexity | Why             |
+| -------- | --------------- | ---------------- | --------------- |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
