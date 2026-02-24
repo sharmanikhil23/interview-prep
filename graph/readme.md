@@ -158,3 +158,13 @@ Simple but need to change thinking now as we are done exploring one side we need
 | Approach | Time Complexity | Space Complexity | Why             |
 | -------- | --------------- | ---------------- | --------------- |
 | **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
+
+## Elevated Safe Path DFS
+
+```
+Very easy question just make sure we are not redoing same thing again and again
+```
+
+| Approach | Time Complexity | Space Complexity | Why             |
+| -------- | --------------- | ---------------- | --------------- |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
