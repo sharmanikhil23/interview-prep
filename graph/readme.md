@@ -168,3 +168,23 @@ Very easy question just make sure we are not redoing same thing again and again
 | Approach | Time Complexity | Space Complexity | Why             |
 | -------- | --------------- | ---------------- | --------------- |
 | **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
+
+## Topological sort
+
+```
+For BFS approach we have to maintian indegree array which will keep track if
+the indegree is 0 or something else and reduce the indegree when we process a
+neighbour and one zero add it to queue
+
+
+This is dfs approach and let's write the strategy
+
+We need to add it in stack and only add the node once we have explored all of
+the neighbour
+
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
