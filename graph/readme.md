@@ -18,6 +18,11 @@ Always make sure we traverse over all of the components as nodes can be non conn
 10. [Distinct Island](#number-of-islands-1)
 11. [Bipartite Graph](#bipartitie-graph)
 12. [Is Cycle in Directed With DFS](#is-cycle-in-directed-with-dfs) Must Do it
+13. [Elevated Safe Path DFS](#elevated-safe-path-dfs)
+14. [Topological sort](#topological-sort)
+15. [Detecting cycle in directed graph using bfs](#detecting-cycle-in-directed-graph-using-bfs)
+16. [Course Schedule 1](#course-schedule-1)
+17. [Course Schedule 2](#course-schedule-2)
 
 ## BFS and DFS
 
@@ -201,3 +206,23 @@ vertices mean there is cycle as no topological sort is made
 | -------- | --------------- | ---------------- | -------------------------- |
 | **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
 | **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Course Schedule 1
+
+```
+Again it is based on the Khan algorithm
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Course Schedule 2
+
+```
+Again it is based on the Khan algorithm
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
