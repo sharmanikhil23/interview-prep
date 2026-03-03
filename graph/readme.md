@@ -188,3 +188,16 @@ the neighbour
 | -------- | --------------- | ---------------- | -------------------------- |
 | **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
 | **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Detecting cycle in directed graph using bfs
+
+```
+So we used khans algorith to find the cycle as remember in topological sort
+is only possible for acyclic graph so if size of result is less than no of
+vertices mean there is cycle as no topological sort is made
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
