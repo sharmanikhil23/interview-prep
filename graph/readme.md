@@ -23,6 +23,7 @@ Always make sure we traverse over all of the components as nodes can be non conn
 15. [Detecting cycle in directed graph using bfs](#detecting-cycle-in-directed-graph-using-bfs)
 16. [Course Schedule 1](#course-schedule-1)
 17. [Course Schedule 2](#course-schedule-2)
+18. [Elevated Safe Path BFS](#elevated-safe-path-bfs)
 
 ## BFS and DFS
 
@@ -221,6 +222,16 @@ Again it is based on the Khan algorithm
 
 ```
 Again it is based on the Khan algorithm
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Elevated Safe Path BFS
+
+```
+Think about it to solve it with bfs using khan algorithm. We have to reverse edges then only we know we are starting from terminal nodes and topological sort make sence
 ```
 
 | Approach | Time Complexity | Space Complexity | Why                        |
