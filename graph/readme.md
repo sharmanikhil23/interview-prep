@@ -24,6 +24,7 @@ Always make sure we traverse over all of the components as nodes can be non conn
 16. [Course Schedule 1](#course-schedule-1)
 17. [Course Schedule 2](#course-schedule-2)
 18. [Elevated Safe Path BFS](#elevated-safe-path-bfs)
+19. [Alien Dictionary]
 
 ## BFS and DFS
 
@@ -232,6 +233,19 @@ Again it is based on the Khan algorithm
 
 ```
 Think about it to solve it with bfs using khan algorithm. We have to reverse edges then only we know we are starting from terminal nodes and topological sort make sence
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Alien Dictionary
+
+```
+Very good question there are couple of edge cases
+1. Invalid inut if left sting is smaller then right and right start with the left
+2. Need to consider the nodes which are not in graph but in input
+3. One node might have multiple similar edge dso in future may be use some hashset
 ```
 
 | Approach | Time Complexity | Space Complexity | Why                        |
