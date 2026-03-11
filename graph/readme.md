@@ -24,7 +24,8 @@ Always make sure we traverse over all of the components as nodes can be non conn
 16. [Course Schedule 1](#course-schedule-1)
 17. [Course Schedule 2](#course-schedule-2)
 18. [Elevated Safe Path BFS](#elevated-safe-path-bfs)
-19. [Alien Dictionary]
+19. [Alien Dictionary](#alien-dictionary) ☢️ Very Important must try
+20. [Shortest path in Directed Acyclic Graph](#shortest-path-in-directed-acyclic-graph)
 
 ## BFS and DFS
 
@@ -246,6 +247,21 @@ Very good question there are couple of edge cases
 1. Invalid inut if left sting is smaller then right and right start with the left
 2. Need to consider the nodes which are not in graph but in input
 3. One node might have multiple similar edge dso in future may be use some hashset
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Shortest path in Directed Acyclic Graph
+
+```
+First find the topological sort of the vertices, there is good chance that you are done with toposort and starting node in toposort is not equal to the starting node to use requested
+
+there is good chance that those vertices are not reachable from starting node soyou can avoid doing anything with them and if they are once you start processing the starting node every thing will be good
+
+Better than dijastra or bellman ford
+
 ```
 
 | Approach | Time Complexity | Space Complexity | Why                        |
