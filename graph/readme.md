@@ -26,6 +26,7 @@ Always make sure we traverse over all of the components as nodes can be non conn
 18. [Elevated Safe Path BFS](#elevated-safe-path-bfs)
 19. [Alien Dictionary](#alien-dictionary) ☢️ Very Important must try
 20. [Shortest path in Directed Acyclic Graph](#shortest-path-in-directed-acyclic-graph)
+21. [Shortest path in undirected graph with unit weights]
 
 ## BFS and DFS
 
@@ -262,6 +263,16 @@ there is good chance that those vertices are not reachable from starting node so
 
 Better than dijastra or bellman ford
 
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Shortest path in undirected graph with unit weights
+
+```
+this is easy question just make sure to first do it on paper
 ```
 
 | Approach | Time Complexity | Space Complexity | Why                        |
