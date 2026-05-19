@@ -1,0 +1,280 @@
+### Graph
+
+## Tip
+
+Always make sure we traverse over all of the components as nodes can be non connected too
+
+## Practice Problems
+
+1. [BFS and DFS](#bfs-and-dfs)
+2. [Number of Provinces](#Number-of-provinces)
+3. [Number of Islands](#Number-of-Islands)
+4. [Flood Fill](#flood-fill)
+5. [Rotten oranges](#rotting-oranges)
+6. [Cycle Detection Non Directed](#cycle-detection)
+7. [01 Matrix](#01-matrix)
+8. [Surrounded Regions](#surrounded-regions)
+9. [Number of Enclaves](#number-of-enclaves)
+10. [Distinct Island](#number-of-islands-1)
+11. [Bipartite Graph](#bipartitie-graph)
+12. [Is Cycle in Directed With DFS](#is-cycle-in-directed-with-dfs) Must Do it
+13. [Elevated Safe Path DFS](#elevated-safe-path-dfs)
+14. [Topological sort](#topological-sort)
+15. [Detecting cycle in directed graph using bfs](#detecting-cycle-in-directed-graph-using-bfs)
+16. [Course Schedule 1](#course-schedule-1)
+17. [Course Schedule 2](#course-schedule-2)
+18. [Elevated Safe Path BFS](#elevated-safe-path-bfs)
+19. [Alien Dictionary](#alien-dictionary) ☢️ Very Important must try
+20. [Shortest path in Directed Acyclic Graph](#shortest-path-in-directed-acyclic-graph)
+21. [Shortest path in undirected graph with unit weights]
+
+## BFS and DFS
+
+```
+For bfs we make use of queue and do one level at time
+
+For dfs no need to use queue just keep going deep on edges
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(V+E)_        | _O(V)_           | Queue occupy extra storage |
+| **DFS**  | _O(V+E)_        | _O(V)_           | Recursive stack            |
+
+## Number of Provinces
+
+```
+Again can be done with both bfs and dfs as curecntly i converted the array to adjacency list it cause V^2 of time complexicity but can be in V+E too
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(v^2)+O(V+E)_ | _O(V)_           | Queue occupy extra storage |
+| **DFS**  | _O(v^2)+O(V+E)_ | _O(V)_           | Recursive stack            |
+
+## Number of Islands
+
+```
+Very simple Question just make sure to cover all of the edge cases which are if you are on the boundry it is true same for if you get 0 on any side
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Flood Fill
+
+```
+Very Simple Question just use basic dfs or bfs for this one
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Rotting Oranges
+
+```
+Not a tough one but there can be multiple things going on at the same time so have to use bfs and make sure to check the null properly in queue
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Connected Components in BFS and DFS
+
+```
+The question is simple but make sure to see the input properly and follow the proceduce draw it then solve it
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## 01 Matrix
+
+```
+Still stuck in this as thinking should be solved with dfs too
+```
+
+## Surrounded Regions
+
+```
+Easy question just solve from edges don't start doing something inside as it can messup stuff
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Number of Enclaves
+
+```
+Again very easy and dead similar to above one
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Distinct Islands
+
+```
+This is not that tough question but there are couple of things you have to take care of this
+First you have to use some datastructure, which store the unique in form of the array list
+
+another important thing to remember is we have to keep hold of initial postition as we are calculating all other connected nodes
+```
+
+| Approach | Time Complexity | Space Complexity | Why             |
+| -------- | --------------- | ---------------- | --------------- |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
+
+## Cycle Detection
+
+```
+Again very easy
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## BiPartitie Graph
+
+```
+Gaph with either zero cycles or even number of cycles
+
+A graph is bipartite if its vertices can be divided into two independent, disjoint sets (let's call them $U$ and $V$) such that every edge in the graph connects a vertex in $U$ to a vertex in $V$
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Is Cycle in Directed With DFS
+
+```
+Simple but need to change thinking now as we are done exploring one side we need to undo the visited oen
+```
+
+| Approach | Time Complexity | Space Complexity | Why             |
+| -------- | --------------- | ---------------- | --------------- |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
+
+## Elevated Safe Path DFS
+
+```
+Very easy question just make sure we are not redoing same thing again and again
+```
+
+| Approach | Time Complexity | Space Complexity | Why             |
+| -------- | --------------- | ---------------- | --------------- |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack |
+
+## Topological sort
+
+```
+For BFS approach we have to maintian indegree array which will keep track if
+the indegree is 0 or something else and reduce the indegree when we process a
+neighbour and one zero add it to queue
+
+
+This is dfs approach and let's write the strategy
+
+We need to add it in stack and only add the node once we have explored all of
+the neighbour
+
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Detecting cycle in directed graph using bfs
+
+```
+So we used khans algorith to find the cycle as remember in topological sort
+is only possible for acyclic graph so if size of result is less than no of
+vertices mean there is cycle as no topological sort is made
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+| **DFS**  | _O(M\*N)_       | _O(M\*N)_        | Recursive stack            |
+
+## Course Schedule 1
+
+```
+Again it is based on the Khan algorithm
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Course Schedule 2
+
+```
+Again it is based on the Khan algorithm
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Elevated Safe Path BFS
+
+```
+Think about it to solve it with bfs using khan algorithm. We have to reverse edges then only we know we are starting from terminal nodes and topological sort make sence
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Alien Dictionary
+
+```
+Very good question there are couple of edge cases
+1. Invalid inut if left sting is smaller then right and right start with the left
+2. Need to consider the nodes which are not in graph but in input
+3. One node might have multiple similar edge dso in future may be use some hashset
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Shortest path in Directed Acyclic Graph
+
+```
+First find the topological sort of the vertices, there is good chance that you are done with toposort and starting node in toposort is not equal to the starting node to use requested
+
+there is good chance that those vertices are not reachable from starting node soyou can avoid doing anything with them and if they are once you start processing the starting node every thing will be good
+
+Better than dijastra or bellman ford
+
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Shortest path in undirected graph with unit weights
+
+```
+this is easy question just make sure to first do it on paper
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
