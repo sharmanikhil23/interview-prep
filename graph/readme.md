@@ -96,8 +96,12 @@ The question is simple but make sure to see the input properly and follow the pr
 ## 01 Matrix
 
 ```
-Still stuck in this as thinking should be solved with dfs too
+It can be solved using multisource bfs take all the 0 and add it in queue and build from it
 ```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
 
 ## Surrounded Regions
 
