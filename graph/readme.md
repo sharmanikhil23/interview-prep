@@ -12,7 +12,7 @@ Always make sure we traverse over all of the components as nodes can be non conn
 4. [Flood Fill](#flood-fill)
 5. [Rotten oranges](#rotting-oranges)
 6. [Cycle Detection Non Directed](#cycle-detection)
-7. [01 Matrix](#01-matrix)
+7. [01 Matrix](#01-matrix)☢️
 8. [Surrounded Regions](#surrounded-regions)
 9. [Number of Enclaves](#number-of-enclaves)
 10. [Distinct Island](#number-of-islands-1)
