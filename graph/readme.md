@@ -15,7 +15,7 @@ Always make sure we traverse over all of the components as nodes can be non conn
 7. [01 Matrix](#01-matrix)☢️
 8. [Surrounded Regions](#surrounded-regions)
 9. [Number of Enclaves](#number-of-enclaves)
-10. [Distinct Island](#number-of-islands-1)
+10. [Distinct Island](#distinct-islands) ☢️
 11. [Bipartite Graph](#bipartitie-graph)
 12. [Is Cycle in Directed With DFS](#is-cycle-in-directed-with-dfs) Must Do it
 13. [Elevated Safe Path DFS](#elevated-safe-path-dfs)
