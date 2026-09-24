@@ -26,7 +26,10 @@ Always make sure we traverse over all of the components as nodes can be non conn
 18. [Elevated Safe Path BFS](#elevated-safe-path-bfs)
 19. [Alien Dictionary](#alien-dictionary) ☢️ Very Important must try
 20. [Shortest path in Directed Acyclic Graph](#shortest-path-in-directed-acyclic-graph)
-21. [Shortest path in undirected graph with unit weights]
+21. [Shortest path in undirected graph with unit weights](#shortest-path-in-undirected-graph-with-unit-weights)
+22. [Word Ladder - I]
+23. [Dijastra]
+24. Cheapest Flights Within K Stops
 
 ## BFS and DFS
 
@@ -278,3 +281,31 @@ this is easy question just make sure to first do it on paper
 | Approach | Time Complexity | Space Complexity | Why                        |
 | -------- | --------------- | ---------------- | -------------------------- |
 | **BFS**  | _O(M\*N)_       | _O(M\*N)_        | Queue occupy extra storage |
+
+## Word Ladder - I
+
+```
+Think before start solving and check the top most solution as have better techniques
+
+Try to write psuedocode and try to get idea of TC and alot of time the approch we think is slow
+```
+
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O(N\*L\*26)_   | _O(M\*N)_        | Queue occupy extra storage |
+
+## DiJastras
+
+```
+Most important Algorithm
+```
+
+## Cheapest Flights Within K Stops
+
+```
+Very Good question as we have 2 main variable dist and number of haults we can make
+Please thing in cases our thing can break before making soution
+| Approach | Time Complexity | Space Complexity | Why                        |
+| -------- | --------------- | ---------------- | -------------------------- |
+| **BFS**  | _O((N+M)log(M))_   | _O(N)_        | Priority Queue occupy extra|
+```
