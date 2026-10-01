@@ -30,6 +30,7 @@ Always make sure we traverse over all of the components as nodes can be non conn
 22. [Word Ladder - I]
 23. [Dijastra]
 24. Cheapest Flights Within K Stops
+25. [Bellman-Ford Algorithm](#bellman-ford-algorithm) ☢️ Very Important must try
 
 ## BFS and DFS
 
@@ -309,3 +310,44 @@ Please thing in cases our thing can break before making soution
 | -------- | --------------- | ---------------- | -------------------------- |
 | **BFS**  | _O((N+M)log(M))_   | _O(N)_        | Priority Queue occupy extra|
 ```
+
+## Bellman-Ford Algorithm
+
+An essential graph algorithm used to find the shortest paths from a single source vertex to all other vertices in a weighted digraph. Unlike Dijkstra's algorithm, Bellman-Ford can handle graphs containing **negative edge weights**.
+
+---
+
+### Key Concepts & Analysis
+
+| Approach         | Time Complexity | Space Complexity | Why                                                                |
+| ---------------- | --------------- | ---------------- | ------------------------------------------------------------------ |
+| **Bellman-Ford** | _O(V × E)_      | _O(V)_           | Relaxes all $E$ edges $(V - 1)$ times to guarantee shortest paths. |
+
+---
+
+### Algorithm Explanation
+
+The algorithm works based on the **Principle of Relaxation**:
+
+1. **Initialization:** Set the distance to the source node `dist[src] = 0` and all other nodes to infinity (`10^8` or `Integer.MAX_VALUE`).
+2. **Relaxation Loop:** Iterate $(V - 1)$ times over all edges. For each edge `(u, v)` with weight `w`:
+   - If `dist[u] != ∞` and `dist[u] + w < dist[v]`, update `dist[v] = dist[u] + w`.
+3. **Why $(V - 1)$ times?** A simple shortest path in a graph with $V$ vertices contains at most $(V - 1)$ edges. Therefore, relaxing all edges $(V - 1)$ times guarantees that shortest path updates propagate to all reachable vertices.
+
+---
+
+### Handling Negative Weight Cycles
+
+A **negative weight cycle** is a cycle where the sum of all edge weights is less than `0`.
+
+- **The Problem:** If a graph contains a negative weight cycle reachable from the source, a true "shortest path" does not exist because traversing the cycle infinitely will continuously decrease the path weight to $-\infty$.
+- **Detection:** Run a **$V$-th relaxation step** on all edges after completing the $(V - 1)$ iterations:
+  - If any distance `dist[v]` can still be updated (`dist[u] + w < dist[v]`), it indicates the presence of a **negative weight cycle**.
+  - In this case, return `[-1]` or signal that shortest paths cannot be reliably computed.
+
+---
+
+### Potential Edge Cases & Gotchas
+
+- **Unreachable Nodes:** Nodes not connected to the source retain their initial infinite value (e.g., `10^8`).
+- **Integer Overflow:** Adding edge weights to `Integer.MAX_VALUE` can cause integer overflow in languages like Java or C++. Always guard check `dist[u] != ∞` before performing `dist[u] + w`.
