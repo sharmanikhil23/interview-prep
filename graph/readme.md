@@ -31,6 +31,7 @@ Always make sure we traverse over all of the components as nodes can be non conn
 23. [Dijastra]
 24. Cheapest Flights Within K Stops
 25. [Bellman-Ford Algorithm](#bellman-ford-algorithm) ☢️ Very Important must try
+26. [Floyd-Warshall Algorithm](#floyd-warshall-algorithm) ☢️ Very Important must try
 
 ## BFS and DFS
 
@@ -351,3 +352,49 @@ A **negative weight cycle** is a cycle where the sum of all edge weights is less
 
 - **Unreachable Nodes:** Nodes not connected to the source retain their initial infinite value (e.g., `10^8`).
 - **Integer Overflow:** Adding edge weights to `Integer.MAX_VALUE` can cause integer overflow in languages like Java or C++. Always guard check `dist[u] != ∞` before performing `dist[u] + w`.
+
+## Floyd-Warshall Algorithm
+
+An essential Dynamic Programming graph algorithm used to find the **shortest paths between all pairs of vertices** in a weighted directed or undirected graph. Unlike single-source algorithms like Dijkstra or Bellman-Ford, Floyd-Warshall computes the shortest path matrix in a single execution and can handle graphs with **negative edge weights** (as long as there are no negative weight cycles).
+
+---
+
+### Key Concepts & Analysis
+
+| Approach           | Time Complexity | Space Complexity | Why                                                                                                                |
+| ------------------ | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Floyd-Warshall** | _O(V³)_         | _O(V²)_          | Uses three nested loops over all $V$ vertices to evaluate all possible intermediate nodes for every $(i, j)$ pair. |
+
+---
+
+### Algorithm Explanation
+
+The algorithm is based on **Dynamic Programming** and considers every vertex $k$ as an intermediate node:
+
+1. **Initialization:** Prepare a 2D matrix `dist` of size $V \times V$.
+   - `dist[i][j]` holds the weight of the direct edge from $i$ to $j$.
+   - `dist[i][i] = 0` for all $i$.
+   - If there is no direct edge between $i$ and $j$, set `dist[i][j] = ∞` (e.g., `10^8`).
+2. **Dynamic Programming State Transition:**
+   Iterate through all possible intermediate vertices $k$ from `0` to `V - 1`:
+   - For every pair of source $i$ and destination $j$:
+     `dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])`
+3. **Outer Loop Order (Crucial):** The intermediate node loop ($k$) **must** be the outermost loop. This ensures that when calculating paths through vertex $k$, all shortest paths using vertices $\{0, 1, \dots, k-1\}$ have already been fully computed.
+
+---
+
+### Handling Negative Weight Cycles
+
+A **negative weight cycle** occurs when a path starts and ends at the same vertex with a net path sum less than `0`.
+
+- **The Problem:** Traversing a negative weight cycle continuously reduces path distances toward $-\infty$, invalidating shortest path computations.
+- **Detection:** Check the main diagonal of the distance matrix (`dist[i][i]`) after running the algorithm:
+  - If `dist[i][i] < 0` for any vertex $i$, the graph contains a **negative weight cycle** accessible by vertex $i$.
+
+---
+
+### Potential Edge Cases & Gotchas
+
+- **Loop Order Bug:** Placing the intermediate vertex loop $k$ as the innermost loop instead of the outermost loop is a common mistake that yields incorrect results.
+- **Integer Overflow / Unreachable Check:** Adding weights to $\infty$ values can lead to overflow errors. Always check that `dist[i][k] != ∞` and `dist[k][j] != ∞` before evaluating `dist[i][k] + dist[k][j]`.
+- **Graph Dense vs. Sparse:** Floyd-Warshall performs best on **dense graphs** ($E \approx V^2$). For sparse graphs ($E \ll V^2$), running Dijkstra's algorithm with binary heaps $V$ times is generally faster ($O(V \cdot E \log V)$).
